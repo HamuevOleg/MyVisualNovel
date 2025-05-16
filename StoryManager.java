@@ -327,7 +327,7 @@ public class StoryManager {
         scene3.addChoice("Sure, sounds like a plan.", 5);
         scene3.addChoice("Maybe another time, I'm pretty swamped.", 7);
         scene3.addChoice("I'm not really a coffee person, but thanks for the offer.", 7);
-        // Scene 4 (Предложение пойти домой)
+        // Scene 4 (Предложение пойти домой) -> useless
         StoryScene scene4 = new StoryScene(
             "story/classroom.jpg",
             "Hiro smiles, looking a bit more relaxed.",
