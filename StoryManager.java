@@ -294,6 +294,7 @@ public class StoryManager {
             new String[]{""}
         );
         scene0.addDialog("???", "Wake Up, your story starts now");
+        // FIXME: rewrite with capital letter
         scene0.addChoice("wake up", 1);
 
         StoryScene scene1 = new StoryScene(
@@ -312,6 +313,8 @@ public class StoryManager {
         scene2.addDialog("Hiro", "Hey! Are you about to head home?");
         scene2.addDialog("You", "Yeah, just finishing up. You too?");
         scene2.addDialog("Hiro", "Pretty much. Say, we've been in the same class all semester, but haven't really talked. I'm Hiro.");
+        // FIXME : floating bracket at the end of your line
+        // FIXME : Anna? Not username?
         scene2.addDialog("You", "Nice to meet you, Hiro. I'm Anna (");
         scene2.addDialog("Hiro", "Likewise, Anna.");
 
@@ -370,6 +373,8 @@ public class StoryManager {
         scene7.addDialog("Hiro", "Alright, no worries. Maybe some other time then.");
         scene7.addDialog("You", "Yeah, definitely. Have a good evening, Hiro.");
         scene7.addDialog("Hiro", "You too, [Ваше имя].");
+		scene7.addChoice("I should go home now", 100);
+		
         // Scene 8 (Разговор в кафе)
         StoryScene scene8 = new StoryScene(
             "story/cafe.jpg",
@@ -386,6 +391,7 @@ public class StoryManager {
         scene8.addDialog("Hiro", "(smiles) If you're not too busy later, maybe we could head to your place?" +
             " I'd love to hear you play.");
         scene8.addChoice("Sure, show me!", 6);
+        // FIXME: choice leads to restarting???
         scene8.addChoice("I'm really sorry, but i need to go home now", 0);
         // Scene 9 (Играем на гитаре - подготовка)
         StoryScene scene9 = new StoryScene(
@@ -401,6 +407,7 @@ public class StoryManager {
         scene9.addDialog("Hiro", "What do you want me to play?");
         scene9.addChoice("Something Romantic", 10);
         scene9.addChoice("Something relax", 11);
+        // FIXME: rewrite "feel" to make it stat with a capital letter??
         scene9.addChoice("feel free ", 12);
 
         StoryScene scene10 = new StoryScene(
@@ -1843,6 +1850,210 @@ public class StoryManager {
         scene95.addChoice("Start a new game", 1);
         scene95.addChoice("Return to title screen", 1);
 
+        // Alternate route
+		
+		// Scene 101 - Getting home and starting with chores.
+		StoryScene scene101 = new StoryScene(
+			"hiro_room_doorway.jpg",
+			"You walk home alone, thinking about your duties and study assignments.",
+			new String[]{""}
+		);
+		
+		scene101.addDialog("You","I'll ask Hiro to go to cafe again whenever I'm done with all this stress.");
+		scene101.addDialog("You","This can't be that hard, right? Lets start with something simple, like... Home chores.");
+		scene101.addChoice("Wash dishes", 102);
+		scene101.addChoice("Mop floors", 103);
+		scene101.addChoice("Cook dinner", 104);
+		
+		// Scene 102 - Washing dishes.
+		StoryScene scene102 = new StoryScene(
+			"hiro_room_doorway.jpg",
+			"You decide to take care of dishes first to get it started.",
+			new String[]{""}
+		);
+		scene102.addDialog("You","Yeah, I'll wash some dishes and let water also take away all my worries");
+		scene102.addDialog("Narrator","You grab plates one by one, covering them in washing detergent and washing it away with tap water");
+		scene102.addDialog("Narrator","After some time you washed all dishes.");
+		scene102.addDialog("You","Alright, done with that, now I can do something more serious.");
+		scene102.addChoice("I'll do homework", 105);
+		
+		// Scene 103 - Mopping floors
+		StoryScene scene103 = new StoryScene(
+			"story/hiro_room.jpg",
+			"You decide to take care of floors first to get it started.",
+			new String[]{""}
+		);
+		scene103.addDialog("You","Yeah, I'll mop the floors. It shouldn't take long, and needs to be done.");
+		scene103.addDialog("You","Just sweeping mop all over the floor, this can't get any easier. Perfect start.");
+		scene103.addDialog("You","I wish I could've don't even start, though.");
+		scene103.addDialog("Narrator","After some time, you've done mopping.");
+		scene103.addChoice("Now I should go do homework.", 105);
+		
+		
+		// Scene 104 - Cooking dinner
+		StoryScene scene104 = new StoryScene(
+			"story/hiro_room.jpg",
+			"You decide to take care of dinner first to get it started.",
+			new String[]{""}
+		);
+		scene104.addDialog("You","I feel hungry, so first thing to do is to make something to eat. Obviously!");
+		scene104.addDialog("You","Perfect opportunity to check my cooking skills.");
+		scene104.addDialog("Narrator","After cooking, you ate your dinner.");
+		scene104.addDialog("You","Wonderful, now I can get to something harder.");
+		scene104.addChoice("Let's get to homework.", 105);
+		
+		// Scene 105 - Doing homework
+		StoryScene scene105 = new StoryScene(
+			"hiro_room_study.jpg",
+			"",
+			new String[]{""}
+		);
+		scene105.addDialog("You", "There is a ton of homework to do, so the faster I begin, the faster It'll be done.");
+		scene105.addDialog("You", "I need to do math, and there is some language tasks to do, too... That's a lot.");
+		scene105.addDialog("You", "If only there were a way to make it simplier, or more pleasing at the very least.");
+		scene105.addDialog("You", "Maybe I could spend some time with my guitar, and then I'll be ready to dive into studying.");
+		scene105.addChoice("Play guitar for a bit.", 106);
+		scene105.addChoice("Get straight to work.", 107);
+		
+		// Scene 106 - Failing to play guitar
+		StoryScene scene106 = new StoryScene(
+			"hiro_room_guitar_focus.jpg",
+			"You grab your guitar and think of what you could play.",
+			new String[]{""}
+		);
+		scene106.addDialog("You", "I'm not all that good at playing guitar, but it helps me to relieve stress.");
+		scene106.addDialog("You", "But this time, guitar doesn't seem all that special...");
+		scene106.addDialog("Narrator", "You grab your guitar, and try to play a song you've learned, but it just doesn't sounds right.");
+		scene106.addDialog("Narrator", "Your best effort to come up with some kind of melody fails totally.");
+		scene106.addDialog("Narrator", "It even feels like your own fingers won't listen to you anymore.");
+		scene106.addDialog("You", "I don't like it today somehow. Maybe its just not my day. Whatever.");
+		scene107.addChoice("Then let's get to homework.", 107);
+		scene107.addChoice("In that case it would be better to go to sleep.", 108);
+		
+		// Scene 107 - Doing homework
+		StoryScene scene107 = new StoryScene(
+			"hiro_room_study.jpg",
+			"You sit at your desk and look into your copybook.",
+			new String[]{""}
+		);
+		scene107.addDialog("You", "Alright, I guess I should start with hardest task: math homework.");
+		scene107.addDialog("You", "This shouldn't be THAT hard... I hope... All I need is my copybook, and my pen.");
+		scene107.addDialog("You", "Solve for x... It shouldn't be hard, it's just... A square root of y? Wait, how do I do it?");
+		scene107.addDialog("Narrator", "You feel confused and tired, and no matter how hard you try, you can't solve a single problem.");
+		scene107.addDialog("You", "There is no way it's actually that hard. Maybe I'm just too tired for this. I need to go to sleep.");
+		scene107.addChoice("Go to bed and try to fall asleep.", 108);
+		
+		// Scene 108 - Trying to sleep
+		StoryScene scene108 = new StoryScene(
+			"hiro_room_late.jpg",
+			"You lay down on your bed and exhale slowly.",
+			new String[]{""}
+		);
+		scene108.addDialog("You", "It was a long day. It felt like eternity. And this boy, Hiro... Did he really wanted to chat, or asked just out of politeness?");
+		scene108.addDialog("You", "I'd actually love to go out with him. He seems nice, and I need more time to unwind.");
+		scene108.addDialog("You", "Studying assignments seems too hard for me for now. There is no way I could handle anymore of anything today.");
+		scene108.addDialog("You", "At least, I've done some home chores. That's a relieve for me, although doesn't seem like a lot.");
+		scene108.addDialog("You", "Thoughts are rushing through my head. There is tomorrow, and tomorrow I'll see Hiro again. Tomorrow I'm going to sit through the lectures once again.");
+		scene108.addDialog("You", "All of this is stressing me out.");
+		scene108.addDialog("Narrator", "Althrough your effort, you can't fall asleep and lay arround all night long.");
+		scene108.addChoice("Wake up.", 109);
+		
+		// Scene 109 - Next day studying
+		StoryScene scene109 = new StoryScene(
+			"story/classroom.jpg",
+			"You enter classroom and take a sit, getting ready for a lecture.",
+			new String[]{"Teacher/fine.png"}
+		);
+		scene109.addDialog("Teacher", "Allright, class. Hopefuly you are doing fine with your assignments. It is quite important for you all to understand it, so that you could pass exams.");
+		scene109.addDialog("You", "Oh yeah, I wasn't able to complete my math problems. Maybe I should ask for help.");
+		scene109.addDialog("You", "I guess I might ask Hiro if he was able to solve math problems. Or get straight to teacher.");
+		scene109.addChoice("Ask for help from teacher.", 110);
+		scene109.addChoice("Ask for help from Hiro.", 111);
+		scene109.addChoice("Stay by yourself.", 112);
+		
+		// Scene 110 - Next day studying
+		StoryScene scene110 = new StoryScene(
+			"story/classroom.jpg",
+			"After lecture you approach teacher to ask for help.",
+			new String[]{"Teacher/fine.png"}
+		);
+		scene110.addDialog("","");
+		scene110.addDialog("Teacher", "(Writes down some formulas in your copybook) Yeah, first ones are really easy, you should check your copybook for an example."); 
+		scene110.addDialog("Teacher", "Next exercise is trickier, but you should be able to solve them using all the same formulas");
+		scene110.addDialog("You", "Allright, I'll try, thank you!");
+		scene110.addChoice("Get back to classes", 112);
+		
+		// Scene 111 - Next day studying
+		StoryScene scene111 = new StoryScene(
+			"story/classroom.jpg",
+			"After lecture you approach Hiro to ask for help.",
+			new String[]{"Hiro/relaxed.png"}
+		);
+		scene111.addDialog("You","Look, I know we haven't really talked much, but I need your help with assignments. You know how to solve them?");
+		scene111.addDialog("Hiro","I think I know, but I haven't really done any. As far as I can tell, you just need to plug the variables in formulas teacher gave us.");
+		scene111.addDialog("You","Well, you see, I've tried, but I don't really get an answer. Could you take a look?");
+		scene111.addDialog("Hiro","I don't think I can help you, to be honest.");
+		scene111.addChoice("Get back to classes", 112);
+		
+		// Scene 112 - You go home thinking about Hiro
+		StoryScene scene112 = new StoryScene(
+			"story/cafe.jpg",
+			"After day finished, you decide to go to cafe and relax there for a bit.",
+			new String[]{"Hiro/thinking.png"}
+		);
+		scene112.addDialog("You","Finally, the day is over. I'm glad I chose to got to cafe.");
+		scene112.addDialog("You","Wow, it seems like Hiro is here too. He wanted to go to cafe with me, but I refused then. Would it be fine to walk up to him now?.");
+		scene112.addChoice("Walk up to him",113);
+		scene112.addChoice("Finish your drink and get home",113);
+		
+		// Scene 113 - Get distracted from homework
+		StoryScene scene113 = new StoryScene(
+			"hiro_room_study.jpg",
+			"You get too nervous and decide to dont approach Hiro, instead you go home and to try to solve math problems right away.",
+			new String[]{""}
+		);
+		scene113.addDialog("You","That's gotta be really easy. I've got this. There is nothing hard to it.");
+		scene113.addDialog("You","(You read through your copybook and solve problems with ease)");
+		scene113.addDialog("You","(As it gets to harder problems, you use internet to look up solution options)");
+		scene113.addDialog("You","(It turns out that this kind of problems is used to write AI, and you decide to procrastinate on assignments once again to look up about AI)");
+		scene113.addChoice("A sit in front of computer all night long and fall asleep",114);
+		
+		// Scene 114 - Failing exam
+		StoryScene scene114 = new StoryScene(
+			"story/classroom.jpg",
+			"You woke up and hurried to exam, but still was late.",
+			new String[]{"Teacher/fine.png"}
+		);
+		scene114.addDialog("You","Sorry for being late!");
+		scene114.addDialog("Teacher","It's fine. Please, take your paper and sit down to write the exam.");
+		scene114.addDialog("You","(Thinking) Oh no, I can't recall anything because I fell asleep so late! I can't write this exam!");
+		scene114.addDialog("You", "(You try your best, but still fail exam.)");
+		scene114.addDialog("You", "(As you exit classroom, you see Hiro amazed by his high grade.)");
+		scene114.addChoice("You go home with unexplainable sorrow on your heart",115);
+		
+		// Scene 115 - Getting expelled
+		StoryScene scene115 = new StoryScene(
+			"story/classroom.jpg",
+			"The next day you wake up and get to classroom, ready for lectures, but still dissatisfied with your failure",
+			new String[]{"Teacher/fine.png"}
+		);
+		scene115.addDialog("Teacher","Dear students! According to exam results, next students are expelled: John, Rose, Anna, [Ваше имя].");
+		scene115.addDialog("You","(Thinking) Oh no! I got expelled for failing an exam!");
+		scene115.addChoice("Exit class and go straight home",116);
+		
+		// Scene 116 - Too much stress
+		StoryScene scene116 = new StoryScene(
+			"story/hiro_room.jpg",
+			"You rush home, trying to convince yourself it was just a bad dream.",
+			new String[]{""}
+		);
+		scene116.addDialog("You","How could it be? There is no way! It can't be happening!");
+		scene116.addDialog("You","(Your head starts spinning, and you feel worse and worse with every second. You fall to your bed)");
+		scene116.addDialog("You","I just need to sleep. It's gonna be alright, I just need a long sleep.");
+		scene116.addDialog("Narrator","You fall asleep with and incredible headache. It was so painful in fact, that you never woke up.");
+		scene116.addDialog("THE END","Bad ending. Try to make your life choices better!");
+		scene116.addChoice("Restart",1);
+
         scenes.add(scene0);
         scenes.add(scene1);
         scenes.add(scene2);
@@ -1939,6 +2150,27 @@ public class StoryManager {
         scenes.add(scene93);
         scenes.add(scene94);
         scenes.add(scene95);
+		scenes.add(scene95); //96th
+		scenes.add(scene95); //97th
+		scenes.add(scene95); //98th
+		scenes.add(scene95); //99th
+		scenes.add(scene101); //100th
+		scenes.add(scene101);
+		scenes.add(scene102);
+		scenes.add(scene103);
+		scenes.add(scene104);
+		scenes.add(scene105);
+		scenes.add(scene106);
+		scenes.add(scene107);
+		scenes.add(scene108);
+		scenes.add(scene109);
+		scenes.add(scene110);
+		scenes.add(scene111);
+		scenes.add(scene112);
+		scenes.add(scene113);
+		scenes.add(scene114);
+		scenes.add(scene115);
+		scenes.add(scene116);
 
         loadTextures();
     }
